@@ -24,7 +24,7 @@ appBancoHoras.controller("pjController", function($scope, $http){
 			.then(function(response){
 			console.log(response);
 			carregarPj();
-		//	$scope.cancelarAlterarPj();
+			$scope.cancelarAlterarPj();
 			
 		}, function(response){
 			console.log(response.data);
@@ -52,7 +52,7 @@ appBancoHoras.controller("pjController", function($scope, $http){
 	};
 	
 	$scope.cancelarAlterarPj = function(){
-		$scope.cliente = {};
+		$scope.pj = {};
 		
 	};
 	
