@@ -9,6 +9,12 @@ appBancoHoras.config(function($routeProvider, $locationProvider){
 	}).when("/empresa", {
 		templateUrl : 'views/empresa.html',
 		controller : 'pjController'
+	}).when("/funcionario", {
+		templateUrl : 'views/funcionario.html',
+		controller : 'pfController'
+	}).when("/lancamento", {
+		templateUrl : 'views/lancamento.html',
+		controller : 'lancamentoController'
 	}).otherwise({
 		rediretTo : "/"
 	});

@@ -1,0 +1,89 @@
+<style>
+<!--
+fieldset{
+	display: inline;
+}
+-->
+</style>
+
+<div>
+	
+	<br/>
+<form novalidate name="frmPf">
+
+	<div>
+	<label>Nome : </label>
+		<input type="text" name="txtNome" data-ng-model="pf.nome" required />
+		<span data-ng-show="frmPf.txtNome.$error.required && frmPf.txtEmail.$dirty">Campo Nome Obrigatorio</span>
+	</div>
+	<div>
+	<label>E-mail:</label>
+		<input type="email" name="txtEmail" data-ng-model="pf.email" required />
+		<span data-ng-show="frmPf.txtEmail.$error.required ">Campo Email Obrigatorio</span>
+	</div>
+	<div>
+	<label>Senha : </label>
+		<input type="text" name="txtSenha" data-ng-model="pf.senha" required />
+		<span data-ng-show="frmPf.txtSenha.$error.required ">Campo senha Obrigatorio</span>
+	</div>
+	<div>
+	<label>Cpf:</label>
+		<input type="text" name="txtCpf" data-ng-model="pf.cpf" required />
+		<span data-ng-show="frmPf.txtCpf.$error.required ">Campo cpf Obrigatorio</span>
+	</div>
+	<div>
+	<label>Valor Hora : </label>
+		<input type="text" name="txtValorHora" data-ng-model="pf.valorHora" required />
+		<span data-ng-show="frmPj.txtRazaoSocial.$error.required ">Campo razão social Obrigatorio</span>
+	</div>
+	<div>
+	<label>Cnpj:</label>
+		<input type="text" name="txtCnpj" data-ng-model="pf.cnpj" required />
+		<span data-ng-show="frmPf.txtCnpj.$error.required ">Campo cnpj Obrigatorio</span>
+	</div>
+	<br></br>
+	<input type="button" value="Salvar" data-ng-click="salvarPf()" data-ng-disabled="frmPf.$invalid" />
+	<input type="button" value="Cancelar" data-ng-click="cancelarAlterarPj()" data-ng-disabled="frmPf.$invalid"/>
+	
+	<br/>
+	
+	<div>
+	
+	
+		<fieldset>
+		<legend>Formulário</legend>
+			Valid: {{frmPf.$valid}}		
+		</fieldset>
+		
+	</div>
+</form>
+
+	<br/>
+<form novalidate name="frmPfBuscar">
+
+	<div>
+	<label>Cnpj:</label>
+		<input type="text" name="txtCpfBuscar" data-ng-model="cpfbuscar" required />
+		<span data-ng-show="frmPfBuscar.txtCpfBuscar.$error.required">Campo cnpj Obrigatorio</span>
+	</div>	
+	
+	<div>
+		<fieldset>
+		<legend>Formulário</legend>
+			Valid: {{frmPjBuscar.$valid}}		
+		</fieldset>
+	</div>
+	
+	<input type="button" value="Buscar" data-ng-click="buscarPfCpf()" data-ng-disabled="frmPfBuscar.$invalid" />
+</form>
+<br/>
+<br/>
+	<!--  <div data-ng-repeat="pj in pessoajuridica">
+		{{pj.id +" " +pj.nome}} 
+		<input type="button" value="Excluir" data-ng-click="excluirPj(pj)" /> 
+		<input type="button" value="Alterar" data-ng-click="alterarPj(pj)" />
+		<a href = "pessoajuridica/{{pj.id}}">Detalhe</a>
+
+	</div>-->
+
+</div>

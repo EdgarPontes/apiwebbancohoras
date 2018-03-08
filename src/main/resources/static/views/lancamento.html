@@ -1,0 +1,85 @@
+<style>
+<!--
+fieldset{
+	display: inline;
+}
+-->
+</style>
+
+<div>
+	
+	<br/>
+<form novalidate name="frmLancamento">
+
+	<div>
+	<label>Data : </label>
+		<input type="text" name="txtData" data-ng-model="lancamento.data" required />
+		<span data-ng-show="frmLancamento.txtData.$error.required && frmLancamento.txtTipo.$dirty">Campo data Obrigatorio</span>
+	</div>
+	<div>
+	<label>Tipo:</label>
+		<input type="text" name="txtTipo" data-ng-model="lancamento.tipo" required />
+		<span data-ng-show="frmLancamento.txtTipo.$error.required && frmLancamento.txtData.$dirty ">Campo tipo Obrigatorio</span>
+	</div>
+	<div>
+	<label>Descricao : </label>
+		<input type="text" name="txtDescricao" data-ng-model="lancamento.descricao" required />
+		<span data-ng-show="frmLancamento.txtDescricao.$error.required && frmLancamento.txtTipo.$dirty">Campo descricao Obrigatorio</span>
+	</div>
+	<div>
+	<label>Localizacao:</label>
+		<input type="text" name="txtLocalizacao" data-ng-model="lancamento.localizacao" required />
+		<span data-ng-show="frmLancamento.txtLocalizacao.$error.required && frmLancamentotxt.Data.$dirty ">Campo localizacao Obrigatorio</span>
+	</div>
+	<div>
+	<label>Id Funcionario : </label>
+		<input type="text" name="txtFuncionarioId" data-ng-model="lancamento.funcionarioId" required />
+		<span data-ng-show="frmLancamento.txtFuncionarioId.$error.required && frmLancamentotxtTipo.$dirty">Campo id funcionario Obrigatorio</span>
+	</div>
+	
+	<br></br>
+	<input type="button" value="Salvar" data-ng-click="salvarLancamento()" data-ng-disabled="frmLancamento.$invalid" />
+	<input type="button" value="Cancelar" data-ng-click="cancelarAlterarLancamento()" data-ng-disabled="frmLancamento.$invalid"/>
+	
+	<br/>
+	
+	<div>
+	
+	
+		<fieldset>
+		<legend>Formulário</legend>
+			Valid: {{frmPf.$valid}}		
+		</fieldset>
+		
+	</div>
+</form>
+
+	<br/>
+<form novalidate name="frmPfBuscar">
+
+	<div>
+	<label>Numro funcionario:</label>
+		<input type="text" name="txtLancamentoBuscar" data-ng-model="lancamentobuscar" required />
+		<span data-ng-show="frmLancamentoBuscar.txtLancamentoBuscar.$error.required">Campo id Obrigatorio</span>
+	</div>	
+	
+	<div>
+		<fieldset>
+		<legend>Formulário</legend>
+			Valid: {{frmLancamentoBuscar.$valid}}		
+		</fieldset>
+	</div>
+	
+	<input type="button" value="Buscar" data-ng-click="buscarLancamento()" data-ng-disabled="frmLancamentoBuscar.$invalid" />
+</form>
+<br/>
+<br/>
+	<!--  <div data-ng-repeat="pj in pessoajuridica">
+		{{pj.id +" " +pj.nome}} 
+		<input type="button" value="Excluir" data-ng-click="excluirPj(pj)" /> 
+		<input type="button" value="Alterar" data-ng-click="alterarPj(pj)" />
+		<a href = "pessoajuridica/{{pj.id}}">Detalhe</a>
+
+	</div>-->
+
+</div>

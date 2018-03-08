@@ -4,12 +4,15 @@ appBancoHoras.controller("pjController", function($scope, $http){
 	$scope.pj = {};
 	token = localStorage.getItem("userToken");
 	console.log(token);
-		
+	
+	//$http.defaults.headers.common.Authorization = 'Bearer ' + token;
+			
 	carregarPj = function(){
-				
-		$http({method:'GET', url: 'https://api-banco-horas.herokuapp.com/api/empresas',headers: {'Authorization': 'Bearer ' + 'token'  }})
-		.then(function(response){
-			$scope.pjs = response.data;
+	
+		$http({method:'GET', url: 'https://api-banco-horas.herokuapp.com/api/empresas'})
+			.then(function(response){
+			console.log(response.data.data);
+			$scope.pjs = response.data.data;
 		
 		}, function(response){
 			console.log(response.data);
@@ -19,8 +22,7 @@ appBancoHoras.controller("pjController", function($scope, $http){
 	};
 	
 	$scope.salvarPj = function(){
-		$http({method:'POST', url: 'https://api-banco-horas.herokuapp.com/api/cadastrar-pj',
-			headers: {'Authorization': 'Bearer ' + 'token'  }, data:$scope.pj })
+		$http({method:'POST', url: 'https://api-banco-horas.herokuapp.com/api/cadastrar-pj', data:$scope.pj })
 			.then(function(response){
 			console.log(response);
 			carregarPj();
@@ -32,6 +34,21 @@ appBancoHoras.controller("pjController", function($scope, $http){
 			
 		});
 	};
+	
+	$scope.buscarPjCnpj = function(){
+		
+		$http({method:'GET', url: 'https://api-banco-horas.herokuapp.com/api/empresas/cnpj/' + $scope.cnpjbuscar })
+		.then(function(response){
+			
+			$scope.pj = response.data.data;
+			
+		}, function(response){
+			console.log(response.data);
+			console.log(response.status);
+			
+		});
+	};
+	
 	$scope.excluirPj = function(pj){
 		$http({method:'DELETE', url: '#' + pj.id })
 		.then(function(response){

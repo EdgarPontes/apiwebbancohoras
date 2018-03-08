@@ -9,15 +9,17 @@
 		<script src= "./js/controller/main-controller.js" ></script>
 		<script src= "./js/controller/login-controller.js" ></script>
 		<script src= "./js/controller/empresa-controller.js" ></script>
+		<script src= "./js/controller/funcionario-controller.js" ></script>
+		<script src= "./js/controller/lancamento-controller.js" ></script>
 		<base href="/" />
 	</head>
 	<body data-ng-controller = "mainController">
 		<div><h1>Acesso ao banco de horas</h1></div>
 		
 		<a href="/login" >Login</a>
-		<a href="/usuario" >Usuario</a>
+		<a href="/funcionario" >Funcionario</a>
 		<a href="/empresa" >Empresa</a>
-		<a href="/lancamentos" >Lançamentos</a>
+		<a href="/lancamento" >Lançamentos</a>
 		
 		<br></br>
 		Path: {{$location.path()}}
