@@ -9,10 +9,10 @@ appBancoHoras.controller("pjController", function($scope, $http){
 			
 	carregarPj = function(){
 	
-		$http({method:'GET', url: 'https://api-banco-horas.herokuapp.com/api/empresas'})
+		$http({method:'GET', url: 'http://localhost:8081/api/empresas'})
 			.then(function(response){
-			console.log(response.data.data);
-			$scope.pjs = response.data.data;
+			console.log(response.data.data.content);
+			$scope.pjs = response.data.data.content;
 		
 		}, function(response){
 			console.log(response.data);

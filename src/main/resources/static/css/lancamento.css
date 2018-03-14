@@ -1,0 +1,34 @@
+#lancamento {
+    font-family: sans-serif;
+    background-color: #f1f1f1;
+    width: 70%;
+    margin: auto;
+    padding: 10px;
+
+}
+
+#lancamento h1{
+    color: gray;
+    font-weight: 300;
+
+}
+
+#lancamento div {
+    text-align: center;
+    padding: 5px;
+
+}
+
+#lancamento input {
+    width: 100%;
+    padding: 1em 0;
+
+}
+
+#lancamento button {
+    width: 30%;
+    background-color: #4242ff;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}

@@ -8,7 +8,7 @@ appBancoHoras.controller("pfController", function($scope, $http){
 		$http({method :'GET',  url : 'http://localhost:8081/api/funcionarios'})
 		.then(function(response){
 			console.log(response.data.data);
-			$scope.pfs = response.data;
+			$scope.pfs = response.data.data.content;
 		},function(response){
 			console.log(response.data);
 			console.log(response.status);

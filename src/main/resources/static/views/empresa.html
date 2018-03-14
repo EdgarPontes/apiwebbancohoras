@@ -1,55 +1,36 @@
-<style>
-<!--
-fieldset{
-	display: inline;
-}
--->
-</style>
+<div id = "empresa">
 
-<div>
-	
-	<br/>
-<form novalidate name="frmPj">
+<form novalidate name="frmPj" >
 
 	<div>
-	<label>Nome : </label>
-		<input type="text" name="txtNome" data-ng-model="pj.nome" required />
+		<input type="text" placeholder="Nome" name="txtNome" data-ng-model="pj.nome" required />
 		<span data-ng-show="frmPj.txtNome.$error.required && frmPj.txtEmail.$dirty">Campo Nome Obrigatorio</span>
 	</div>
 	<div>
-	<label>E-mail:</label>
-		<input type="email" name="txtEmail" data-ng-model="pj.email" required />
-		<span data-ng-show="frmPj.txtEmail.$error.required ">Campo Email Obrigatorio</span>
+		<input type="email" placeholder="E-mail" name="txtEmail" data-ng-model="pj.email" required />
+		<span data-ng-show="frmPj.txtEmail.$error.required && frmPj.txtNome.$dirty">Campo Email Obrigatorio</span>
 	</div>
 	<div>
-	<label>Senha : </label>
-		<input type="text" name="txtSenha" data-ng-model="pj.senha" required />
-		<span data-ng-show="frmPj.txtSenha.$error.required ">Campo senha Obrigatorio</span>
+		<input type="text" placeholder="Senha" name="txtSenha" data-ng-model="pj.senha" required />
+		<span data-ng-show="frmPj.txtSenha.$error.required && frmPj.txtEmail.$dirty">Campo senha Obrigatorio</span>
 	</div>
 	<div>
-	<label>Cpf:</label>
-		<input type="text" name="txtCpf" data-ng-model="pj.cpf" required />
-		<span data-ng-show="frmPj.txtCpf.$error.required ">Campo cpf Obrigatorio</span>
+		<input type="text" placeholder="Cpf" name="txtCpf" data-ng-model="pj.cpf" required />
+		<span data-ng-show="frmPj.txtCpf.$error.required && frmPj.txtSenha.$dirty">Campo cpf Obrigatorio</span>
 	</div>
 	<div>
-	<label>Razão Social : </label>
-		<input type="text" name="txtRazaoSocial" data-ng-model="pj.razaoSocial" required />
-		<span data-ng-show="frmPj.txtRazaoSocial.$error.required ">Campo razão social Obrigatorio</span>
+		<input type="text" placeholder="Razão social" name="txtRazaoSocial" data-ng-model="pj.razaoSocial" required />
+		<span data-ng-show="frmPj.txtRazaoSocial.$error.required && frmPj.txtCpf.$dirty">Campo razão social Obrigatorio</span>
 	</div>
 	<div>
-	<label>Cnpj:</label>
-		<input type="text" name="txtCnpj" data-ng-model="pj.cnpj" required />
-		<span data-ng-show="frmPj.txtCnpj.$error.required ">Campo cnpj Obrigatorio</span>
+		<input type="text" placeholder="Cnpj" name="txtCnpj" data-ng-model="pj.cnpj" required />
+		<span data-ng-show="frmPj.txtCnpj.$error.required && frmPj.txtRazaoSocial.$dirty">Campo cnpj Obrigatorio</span>
 	</div>
-	<br></br>
-	<input type="button" value="Salvar" data-ng-click="salvarPj()" data-ng-disabled="frmPj.$invalid" />
-	<input type="button" value="Cancelar" data-ng-click="cancelarAlterarPj()" data-ng-disabled="frmPj.$invalid"/>
-	
-	<br/>
+
+	<button type="button" value="Salvar" data-ng-click="salvarPj()" data-ng-disabled="frmPj.$invalid" >Salvar</button>
+	<button type="button" value="Cancelar" data-ng-click="cancelarAlterarPj()" data-ng-disabled="frmPj.$invalid">Cancelar</button>
 	
 	<div>
-	
-	
 		<fieldset>
 		<legend>Formulário</legend>
 			Valid: {{frmPj.$valid}}		
@@ -57,14 +38,11 @@ fieldset{
 		
 	</div>
 </form>
-
-	<br/>
 <form novalidate name="frmPjBuscar">
 
 	<div>
-	<label>Cnpj:</label>
-		<input type="text" name="txtCnpjBuscar" data-ng-model="cnpjbuscar" required />
-		<span data-ng-show="frmPjBuscar.txtCnpjBuscar.$error.required">Campo cnpj Obrigatorio</span>
+		<input type="text" placeholder="Cnpj" name="txtCnpjBuscar" data-ng-model="cnpjbuscar" required />
+		<span data-ng-show="frmPjBuscar.txtCnpjBuscar.$error.required && frmPjBuscar.txtCnpjBuscar.$dirty">Campo cnpj Obrigatorio</span>
 	</div>	
 	
 	<div>
@@ -74,16 +52,14 @@ fieldset{
 		</fieldset>
 	</div>
 	
-	<input type="button" value="Buscar" data-ng-click="buscarPjCnpj()" data-ng-disabled="frmPjBuscar.$invalid" />
+	<button type="button" value="Buscar" data-ng-click="buscarPjCnpj()" data-ng-disabled="frmPjBuscar.$invalid" >Buscar</button>
 </form>
-<br/>
-<br/>
-	<!--  <div data-ng-repeat="pj in pessoajuridica">
-		{{pj.id +" " +pj.nome}} 
-		<input type="button" value="Excluir" data-ng-click="excluirPj(pj)" /> 
-		<input type="button" value="Alterar" data-ng-click="alterarPj(pj)" />
-		<a href = "pessoajuridica/{{pj.id}}">Detalhe</a>
+	<div data-ng-repeat="pj in pjs">
+		{{pj.id +" " +pj.razaoSocial + " " + pj.cnpj}} 
+		<button type="button" value="Excluir" data-ng-click="excluirPj(pj)" >Excluir</button>
+		<button type="button" value="Alterar" data-ng-click="alterarPj(pj)" >Alterar</button>
+		<a href = "empresas/{{pj.id}}">Detalhe</a>
 
-	</div>-->
+	</div>
 
 </div>

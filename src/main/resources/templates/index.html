@@ -12,25 +12,47 @@
 		<script src= "./js/controller/funcionario-controller.js" ></script>
 		<script src= "./js/controller/lancamento-controller.js" ></script>
 		<base href="/" />
+		
+		<link rel="stylesheet" type="text/css" href="./css/index.css" />
+		<link rel="stylesheet" type="text/css" href="./css/login.css"/> 
+		<link rel="stylesheet" type="text/css" href="./css/funcionario.css"/>
+		<link rel="stylesheet" type="text/css" href="./css/empresa.css"/> 
+		<link rel="stylesheet" type="text/css" href="./css/lancamento.css"/>
+		
 	</head>
 	<body data-ng-controller = "mainController">
-		<div><h1>Acesso ao banco de horas</h1></div>
-		
-		<a href="/login" >Login</a>
-		<a href="/funcionario" >Funcionario</a>
-		<a href="/empresa" >Empresa</a>
-		<a href="/lancamento" >Lançamentos</a>
-		
-		<br></br>
-		Path: {{$location.path()}}
-		<br></br>
-		Template URL: {{$route.current.templateUrl}}
-		<br></br>
-		Parametros: {{$routeParams}}
-		
-		<div data-ng-view = "ng-view">
-		
+		<div id="container">
+			<nav class="centro" id="menu">
+				<img src="./icon/round-delete-button.svg" alt="" class="menu_fechar" data-ng-click="fecharMenu()"></img>
+				<h2>Menu</h2>
+
+				<ul>
+					<li><a href="/login" >Login</a></li>
+					<li><a href="/funcionario" >Funcionario</a></li>
+					<li><a href="/empresa" >Empresa</a></li>
+					<li><a href="/lancamento" >Lançamentos</a></li>
+				</ul>
+									
+				<div>
+					Path: {{$location.path()}}
+				</div>
+				<div>
+					Template URL: {{$route.current.templateUrl}}
+				</div>
+			</nav>
+
+			<main>
+				<img data-ng-src="{{'/icon/menu.svg'}}" alt="" class="menu_abrir" data-ng-click="abrirMenu()"></img>
+				<div>
+					<h1>Acesso ao banco de horas</h1>
+				</div>
+				<div data-ng-view = "ng-view" >
+					
+				</div>
+			</main>
 		</div>
-		
 	</body>
+	<footer>
+
+	</footer>
 </html>
