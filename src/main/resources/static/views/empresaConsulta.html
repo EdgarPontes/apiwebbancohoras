@@ -1,0 +1,21 @@
+<div>
+        <div>
+            <h1>Acesso consulta empresas</h1>
+        </div>
+    <table class="table table-responsive">
+        <tr>
+            <th>Codigo</th>
+            <th>Razão Social</th>
+            <th>Cnpj</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr data-ng-repeat="pj in pjs">
+            <td>{{pj.id}}</td>
+            <td>{{pj.razaoSocial}}</td>
+            <td>{{pj.cnpj}}</td>
+            <td><a type="button" class="botao_alterar" value="Excluir" data-ng-click="excluirPj(pj)" >Excluir</a></td>
+            <td><a type="button" href="/empresa" class="botao_alterar" value="Alterar" data-ng-click="alterarPj(pj)" >Alterar</a></td>
+        </tr>
+    </table>
+</div>

@@ -21,7 +21,7 @@ main {
 nav {
 	background-color: rgb(111, 147, 174);
 	float: left;
-	width: 30%;
+	width: 20%;
 	height: 100%;
 	box-shadow: 5px 0px 10px gray;
 	color: white;
@@ -41,9 +41,13 @@ nav li {
 	padding-top: 5px;
 }
 
-
 nav li:hover {
 	background-color: dodgerblue;
+}
+
+.botao_alterar {
+	color: rgb(48, 31, 31); 
+	cursor: pointer;	
 }
 
 .menu_fechar {
@@ -59,19 +63,245 @@ nav li:hover {
 .menu_aberto {
 	width: 30%;
 }
+  /* Css Emoresa */
+#empresa {
+	font-family: sans-serif;
+	background-color: #f1f1f1;
+	width: 50%;
+	margin: auto;
+	padding: 10px;
+}
+#empresa h1 {
+	color: gray;
+	font-weight: 300;
+}
 
+#empresa div {
+	text-align: center;
+	padding: 5px;
+}
+
+#empresa input {
+	width: 100%;
+	padding: 1em 0;
+}
+
+#empresa button {
+	width: 30%;
+	background-color: #4242ff;
+	color: white;
+	padding: 10px;
+}
+
+/* Funcionario */
+#funcionario {
+	font-family: sans-serif;
+	background-color: #f1f1f1;
+	width: 50%;
+	margin: auto;
+	padding: 10px;
+}
+
+#funcionario div {
+	text-align: center;
+	padding: 5px;
+}
+
+#funcionario input {
+	width: 100%;
+	padding: 1em 0;
+}
+
+#funcionario button {
+	width: 30%;
+	background-color: #4242ff;
+	color: white;
+	padding: 1em 0;
+}
+
+/* Lancamento */
+#lancamento {
+    font-family: sans-serif;
+    background-color: #f1f1f1;
+    width: 50%;
+    margin: auto;
+    padding: 10px;
+
+}
+
+#lancamento h1{
+    color: gray;
+    font-weight: 300;
+
+}
+
+#lancamento div {
+    text-align: center;
+    padding: 5px;
+
+}
+
+#lancamento input {
+    width: 100%;
+    padding: 1em 0;
+
+}
+
+#select {
+    width: 100%;
+    padding: 1em 0;
+}
+
+#lancamento button {
+    width: 30%;
+    background-color: #4242ff;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Login */
+#login {
+	font-family: sans-serif;
+	background-color: #f1f1f1;
+	width: 50%;
+	margin: auto;
+	padding: 10px;
+
+}
+
+#login h1 {
+	color: gray;
+	font-weight: 300;
+}
+
+#login div {
+	text-align: center;
+	padding: 5px;
+
+}
+
+#login input {
+	width: 100%;
+	padding: 1em 0;
+
+}
+
+#login button {
+	width: 30%;
+	background-color: #4242ff;
+	color: white;
+	padding: 10px;
+	cursor: pointer;
+}
+
+#register {
+	font-size: 10pt;
+	color: darkgray;
+}
+
+#login img {
+	width: 100px;
+}
+
+table {
+    max-width: 77%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+	font-family: arial;
+	float: right;
+	margin: auto;
+  }
+
+  .table {
+    border-bottom: #999999 solid 1px;
+    width: 77%;
+    margin-bottom: 20px;
+  }
+
+  .table th,
+  .table td {
+    border-right: #999999 solid 1px;
+    font-size: 12px;
+    padding: 8px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: middle;
+  }
+
+  .table td:last-child {
+     border-right: 0;
+  }
+
+  .table thead th {
+    font-weight: normal;
+    background-color: #005dab;
+    color: #fff;
+    font-size: 15px;
+  }
+
+  .table tbody > tr:nth-child(odd) > td,
+  .table tbody > tr:nth-child(odd) > th {
+    background-color: #f8f8f8;
+  }
+/* Media  */
 @media (max-width:600px){
 	nav {
-		width: 0;
+	width: 0;
 	}
 	main {
-		width: 100%;
+	width: auto;
 	}
 	.menu_fechar {
 	opacity: 1;
 	}
-	
+
 	.menu_abrir {
-		opacity: 1;
+	opacity: 1;
 	}
+}
+@media (max-width:830px){
+	/* Responsive Table */
+	.table-responsive {
+	display: block;
+	position: relative;
+	width: auto;
+	float: left;
+	z-index: -1;
+}
+
+.table-responsive thead,
+.table-responsive tbody,
+.table-responsive th,
+.table-responsive td,
+.table-responsive tr {
+	display: block;
+}
+
+.table-responsive td,
+.table-responsive th {
+	height: 35px;
+}
+
+.table-responsive thead {
+	float: left;
+}
+
+.table-responsive tbody {
+	width: auto;
+	position: relative;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	white-space: nowrap;
+}
+
+.table-responsive tbody tr {
+	display: inline-block;
+}
+
+.table td:last-child {
+	border-right: #999999 solid 1px;
+}
+
 }

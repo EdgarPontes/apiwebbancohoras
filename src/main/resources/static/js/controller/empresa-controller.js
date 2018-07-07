@@ -1,15 +1,16 @@
 appBancoHoras.controller("pjController", function($scope, $http){
 	
 	$scope.pjs = [];
-	$scope.pj = {};
-	token = localStorage.getItem("userToken");
+	$scope.pj  = {};
+	token      = localStorage.getItem("userToken");
 	console.log(token);
 	
 	//$http.defaults.headers.common.Authorization = 'Bearer ' + token;
 			
 	carregarPj = function(){
 	
-		$http({method:'GET', url: 'http://localhost:8081/api/empresas'})
+		$http({method:'GET', url: 'http://localhost:8080/api/empresas'})
+		//$http({method:'GET', url: 'https://api-banco-horas.herokuapp.com/api/empresas'})
 			.then(function(response){
 			console.log(response.data.data.content);
 			$scope.pjs = response.data.data.content;
@@ -22,7 +23,8 @@ appBancoHoras.controller("pjController", function($scope, $http){
 	};
 	
 	$scope.salvarPj = function(){
-		$http({method:'POST', url: 'https://api-banco-horas.herokuapp.com/api/cadastrar-pj', data:$scope.pj })
+		$http({method:'POST', url: 'http://localhost:8080/api/cadastrar-pj', data:$scope.pj })
+		//$http({method:'POST', url: 'https://api-banco-horas.herokuapp.com/api/cadastrar-pj', data:$scope.pj })
 			.then(function(response){
 			console.log(response);
 			carregarPj();
@@ -37,7 +39,8 @@ appBancoHoras.controller("pjController", function($scope, $http){
 	
 	$scope.buscarPjCnpj = function(){
 		
-		$http({method:'GET', url: 'https://api-banco-horas.herokuapp.com/api/empresas/cnpj/' + $scope.cnpjbuscar })
+		$http({method:'GET', url: 'http://localhost:8080/api/empresas/cnpj/' + $scope.cnpjbuscar })
+		//$http({method:'GET', url: 'https://api-banco-horas.herokuapp.com/api/empresas/cnpj/' + $scope.cnpjbuscar })
 		.then(function(response){
 			
 			$scope.pj = response.data.data;

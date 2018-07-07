@@ -6,7 +6,8 @@ appBancoHoras.controller("loginController", function($scope, $http){
 	
 	$scope.autenticar = function(){
 		
-		$http.post("http://localhost:8081/auth", $scope.usuario)
+		$http.post("http://localhost:8080/auth", $scope.usuario)
+		//$http.post("https://api-banco-horas.herokuapp.com/auth", $scope.usuario)
 		.then(function(response){
 			console.log("Sucesso " + response.data);
 			$scope.token = response.data.data.token;

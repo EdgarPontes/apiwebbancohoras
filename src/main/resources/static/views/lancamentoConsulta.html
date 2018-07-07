@@ -1,0 +1,29 @@
+<div>
+    <form novalidate name="frmPfBuscar">
+            <div>
+                <input type="text" name="txtLancamentosBuscar" placeholder="Número funcionário" data-ng-model="lancamentosbuscar" required />
+                <span data-ng-show="frmLancamentoBuscar.txtLancamentoBuscar.$error.required && frmLancamentoBuscar.txtLancamentosBuscar.$dirty">Campo cnpj Obrigatorio</span>
+            </div>	
+            <button type="button" value="Buscar" data-ng-click="carregarLancamentos()" data-ng-disabled="frmLancamentosBuscar.$invalid" >Buscar</button>
+    </form>
+    <br/>
+    <table class="table table-responsive">
+        <tr>
+            <th></th>
+            <th>Data</th>
+            <th>Tipo</th>
+            <th>Descrição</th>
+            <th>Localização</th>
+            <th></th>
+        </tr>
+      
+        <tr data-ng-repeat="lanc in lancamentos">
+            <td></td>
+            <td>{{lanc.data}}</td>
+            <td>{{lanc.tipo}}</td>
+            <td>{{lanc.descricao}}</td>
+            <td>{{lanc.localizacao}}</td>
+            <td><a type="button" class="botao_alterar" value="Alterar" data-ng-click="alterarLancamento(lanc)">Alterar</a></td>
+        </tr>
+    </table>
+</div>

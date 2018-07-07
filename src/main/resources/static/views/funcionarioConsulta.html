@@ -1,0 +1,23 @@
+<div>  
+    </br>
+    <table class="table table-responsive">
+        <tr>
+            <!-- <th>Codigo</th> -->
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Valor Hora</th>
+            <th>Cnpj empresa</th>
+            <th></th>
+            <th></th>
+        </tr>
+       
+        <tr data-ng-repeat="fis in pfs">
+            <td>{{fis.nome}}</td>
+            <td>{{fis.email}}</td>
+            <td>{{fis.valorHora}}</td>
+            <td>{{fis.cnpj}}</td>
+            <td><a type="button" class="botao_alterar" value="Excluir" data-ng-click="excluirPf(fis)" >Excluir</a></td>
+            <td><a type="button" class="botao_alterar" value="Alterar" data-ng-click="alterarPf(fis)" >Alterar</a></td>
+        </tr>
+    </table>
+</div>

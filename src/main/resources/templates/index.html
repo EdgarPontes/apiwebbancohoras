@@ -14,11 +14,44 @@
 		<base href="/" />
 		
 		<link rel="stylesheet" type="text/css" href="./css/index.css" />
-		<link rel="stylesheet" type="text/css" href="./css/login.css"/> 
-		<link rel="stylesheet" type="text/css" href="./css/funcionario.css"/>
-		<link rel="stylesheet" type="text/css" href="./css/empresa.css"/> 
-		<link rel="stylesheet" type="text/css" href="./css/lancamento.css"/>
-		
+		<script language="JavaScript">
+			//<![CDATA[
+			function DataHora(evento, objeto){
+				var keypress=(window.event)?event.keyCode:evento.which;
+				campo = eval (objeto);
+				if (campo.value == '00/00/0000 00:00:00')
+				{
+					campo.value=""
+				}
+			
+				caracteres = '0123456789';
+				separacao1 = '/';
+				separacao2 = ' ';
+				separacao3 = ':';
+				conjunto1 = 2;
+				conjunto2 = 5;
+				conjunto3 = 10;
+				conjunto4 = 13;
+				conjunto5 = 16;
+				if ((caracteres.search(String.fromCharCode (keypress))!=-1) && campo.value.length < (19))
+				{
+					if (campo.value.length == conjunto1 )
+					campo.value = campo.value + separacao1;
+					else if (campo.value.length == conjunto2)
+					campo.value = campo.value + separacao1;
+					else if (campo.value.length == conjunto3)
+					campo.value = campo.value + separacao2;
+					else if (campo.value.length == conjunto4)
+					campo.value = campo.value + separacao3;
+					else if (campo.value.length == conjunto5)
+					campo.value = campo.value + separacao3;
+				}
+				else
+					event.returnValue = false;
+			};
+			//]]>
+		</script>	
+				
 	</head>
 	<body data-ng-controller = "mainController">
 		<div id="container">
@@ -29,8 +62,11 @@
 				<ul>
 					<li><a href="/login" >Login</a></li>
 					<li><a href="/funcionario" >Funcionario</a></li>
+					<li><a href="/funcionarioConsulta" >Consulta Funcionario</a></li>
 					<li><a href="/empresa" >Empresa</a></li>
+					<li><a href="/empresaConsulta" >Consulta Empresas</a></li>
 					<li><a href="/lancamento" >Lançamentos</a></li>
+					<li><a href="/lancamentoConsulta" >Lançamentos consulta</a></li>
 				</ul>
 									
 				<div>
@@ -41,15 +77,13 @@
 				</div>
 			</nav>
 
-			<main>
+			<div>
 				<img data-ng-src="{{'/icon/menu.svg'}}" alt="" class="menu_abrir" data-ng-click="abrirMenu()"></img>
-				<div>
-					<h1>Acesso ao banco de horas</h1>
-				</div>
+				
 				<div data-ng-view = "ng-view" >
 					
 				</div>
-			</main>
+			</div>
 		</div>
 	</body>
 	<footer>

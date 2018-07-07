@@ -1,29 +1,37 @@
 <div id = "lancamento">
-	
+	<div>
+		<h1>Acesso lancamentos</h1>
+	</div>
+
 <form novalidate name="frmLancamento">
 
 	<div>
-		<input type="datetime-local" placeholder="Data" name="txtData" data-ng-model="lancamento.data" required />
+		<input type="text" placeholder="Data" name="txtData" data-ng-model="lancamento.data" onKeyPress="DataHora(event, this)" required />
 		<span data-ng-show="frmLancamento.txtData.$error.required && frmLancamento.txtTipo.$dirty">Campo data Obrigatorio</span>
 	</div>
 	<div>
-		<input type="text" placeholder="Tipo" name="txtTipo" data-ng-model="lancamento.tipo" required />
+		<select id="select" name="txtTipo" data-ng-model="lancamento.tipo" required>
+			<option value="INICIO_TRABALHO">INICIO TRABALHO</option>
+			<option value="TERMINO_TRABALHO">TERMINO TRABALHO</option>
+			<option value="INICIO_ALMOCO"> INICIO ALMOCO</option>
+			<option value="TERMINO_ALMOCO">TERMINO ALMOCO</option>
+			<option value="INICIO_PAUSA">INICIO PAUSA</option>
+			<option value="TERMINO_PAUSA">TERMINO PAUSA</option>
+		</select>
 		<span data-ng-show="frmLancamento.txtTipo.$error.required && frmLancamento.txtData.$dirty ">Campo tipo Obrigatorio</span>
 	</div>
 	<div>
-		<input type="text" placeholder="Descrição" name="txtDescricao" data-ng-model="lancamento.descricao" required />
-		<span data-ng-show="frmLancamento.txtDescricao.$error.required && frmLancamento.txtTipo.$dirty">Campo descricao Obrigatorio</span>
+		<input type="text" placeholder="Descrição" name="txtDescricao" data-ng-model="lancamento.descricao" />
+		<!-- <span data-ng-show="frmLancamento.txtDescricao.$error.required && frmLancamento.txtTipo.$dirty">Campo descricao Obrigatorio</span> -->
 	</div>
 	<div>
-		<input type="text" placeholder="Localização" name="txtLocalizacao" data-ng-model="lancamento.localizacao" required />
-		<span data-ng-show="frmLancamento.txtLocalizacao.$error.required && frmLancamentotxt.Data.$dirty ">Campo localizacao Obrigatorio</span>
+		<input type="text" placeholder="Localização" name="txtLocalizacao" data-ng-model="lancamento.localizacao" />
 	</div>
 	<div>
 		<input type="text" placeholder="Id Funcionario" name="txtFuncionarioId" data-ng-model="lancamento.funcionarioId" required />
 		<span data-ng-show="frmLancamento.txtFuncionarioId.$error.required && frmLancamentotxtTipo.$dirty">Campo id funcionario Obrigatorio</span>
 	</div>
-
-	</br>
+	
 	<button type="button" value="Salvar" data-ng-click="salvarLancamento()" data-ng-disabled="frmLancamento.$invalid">Salvar</button>
 	<button type="button" value="Cancelar" data-ng-click="cancelarAlterarLancamento()" data-ng-disabled="frmLancamento.$invalid">Cancelar</button>
 	
@@ -32,35 +40,18 @@
 	<div>	
 		<fieldset>
 		<legend>Formulário</legend>
-			Valid: {{frmPf.$valid}}		
+			Valid: {{frmLancamento.$valid}}		
 		</fieldset>
 	</div>
 </form>
 
-	<br/>
 <form novalidate name="frmPfBuscar">
 
 	<div>
-	<label>Numero funcionario:</label>
+	<label>Buscar lancamento por funcionario id:</label>
 		<input type="text" name="txtLancamentoBuscar" data-ng-model="lancamentobuscar" required />
 		<span data-ng-show="frmLancamentoBuscar.txtLancamentoBuscar.$error.required && frmLancamentoBuscar.txtLancamentoBuscar.$dirty">Campo id Obrigatorio</span>
 	</div>	
 
 	<button type="button" value="Buscar" data-ng-click="carregarLancamento()" data-ng-disabled="frmLancamentoBuscar.$invalid" >Buscar</button>
 </form>
-<br/>
-	<div>
-		<fieldset>
-		<legend>Formulário</legend>
-			Valid: {{frmLancamentoBuscar.$valid}}		
-		</fieldset>
-	</div>
-<br/>
-	<div data-ng-repeat="lanc in lancamentos">
-		{{lanc.id +" " + lanc.data + " " + lanc.tipo}} 
-		<input type="button" value="Excluir" data-ng-click="excluirPj(pj)" /> 
-		<input type="button" value="Alterar" data-ng-click="alterarPj(pj)" />
-		<a href = "lancamento/{{lanc.id}}">Detalhe</a>
-
-	</div>
-</div>

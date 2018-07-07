@@ -1,71 +1,54 @@
 <div id="funcionario">
+	<div>
+		<h1>Acesso funcionario</h1>
+	</div>
 	<section>
-	
-	<form novalidate name="frmPf" >
-	
-		<div>
-			<input type="text" name="txtNome" placeholder="Nome" data-ng-model="pf.nome" required />
-			<span data-ng-show="frmPf.txtNome.$error.required && frmPf.txtEmail.$dirty">Campo Nome Obrigatorio</span>
-		</div>
-		<div>
-			<input type="email" name="txtEmail" placeholder="E-mail" data-ng-model="pf.email" required />
-			<span data-ng-show="frmPf.txtEmail.$error.required  && frmPf.txtNome.$dirty">Campo Email Obrigatorio</span>
-		</div>
-		<div>
-			<input type="text" name="txtSenha" placeholder="Senha" data-ng-model="pf.senha" required />
-			<span data-ng-show="frmPf.txtSenha.$error.required && frmPf.txtEmail.$dirty">Campo senha Obrigatorio</span>
-		</div>
-		<div>
-			<input type="text" name="txtCpf" placeholder="Cpf" data-ng-model="pf.cpf" required />
-			<span data-ng-show="frmPf.txtCpf.$error.required && frmPf.txtSenha.$dirty">Campo cpf Obrigatorio</span>
-		</div>
-		<div>
-			<input type="text" name="txtValorHora" placeholder="Valor Hora" data-ng-model="pf.valorHora" required />
-			<span data-ng-show="frmPj.txtValorHora.$error.required && frmPf.txtCpf.$dirty">Campo valor hora Obrigatorio</span>
-		</div>
-		<div>
-			<input type="text" name="txtCnpj" placeholder="Cnpj" data-ng-model="pf.cnpj" required />
-			<span data-ng-show="frmPf.txtCnpj.$error.required && frmPf.txtValorHora.$dirty">Campo cnpj Obrigatorio</span>
-		</div>
+		<form novalidate name="frmPf" >
 		
-		<button type="submit" value="Salvar" data-ng-click="salvarPf()" data-ng-disabled="frmPf.$invalid" >Salvar</button>
-		<button type="submit" value="Cancelar" data-ng-click="cancelarAlterarPj()" data-ng-disabled="frmPf.$invalid">Cancelar</button>
+			<div>
+				<input type="text" name="txtNome" placeholder="Nome" data-ng-model="pf.nome" required />
+				<span data-ng-show="frmPf.txtNome.$error.required && frmPf.txtEmail.$dirty">Campo Nome Obrigatorio</span>
+			</div>
+			<div>
+				<input type="email" name="txtEmail" placeholder="E-mail" data-ng-model="pf.email" required />
+				<span data-ng-show="frmPf.txtEmail.$error.required  && frmPf.txtNome.$dirty">Campo Email Obrigatorio</span>
+			</div>
+			<div>
+				<input type="password" name="txtSenha" placeholder="Senha" data-ng-model="pf.senha" required />
+				<span data-ng-show="frmPf.txtSenha.$error.required && frmPf.txtEmail.$dirty">Campo senha Obrigatorio</span>
+			</div>
+			<div>
+				<input type="text" name="txtCpf" placeholder="Cpf" data-ng-model="pf.cpf" required />
+				<span data-ng-show="frmPf.txtCpf.$error.required && frmPf.txtSenha.$dirty">Campo cpf Obrigatorio</span>
+			</div>
+			<div>
+				<input type="text" name="txtValorHora" placeholder="Valor Hora" data-ng-model="pf.valorHora" required />
+				<span data-ng-show="frmPj.txtValorHora.$error.required && frmPf.txtCpf.$dirty">Campo valor hora Obrigatorio</span>
+			</div>
+			<div>
+				<input type="text" name="txtCnpj" placeholder="Cnpj" data-ng-model="pf.cnpj" required />
+				<span data-ng-show="frmPf.txtCnpj.$error.required && frmPf.txtValorHora.$dirty">Campo cnpj Obrigatorio</span>
+			</div>
 			
-		<div>
-		
-		
-			<fieldset>
-			<legend>Formulário</legend>
-				Valid: {{frmPf.$valid}}		
-			</fieldset>
+			<button type="submit" value="Salvar" data-ng-click="salvarPf()" data-ng-disabled="frmPf.$invalid" >Salvar</button>
+			<button type="submit" value="Cancelar" data-ng-click="cancelarAlterarPj()" data-ng-disabled="frmPf.$invalid">Cancelar</button>
+				
+			<div>
 			
-		</div>
-	</form>
-	
-	<form novalidate name="frmPfBuscar">
-	
-		<div>
-			<input type="text" name="txtCpfBuscar" placeholder="Cnpj" data-ng-model="cpfbuscar" required />
-			<span data-ng-show="frmPfBuscar.txtCpfBuscar.$error.required && frmPf.txtCpfBuscar.$dirty">Campo cnpj Obrigatorio</span>
-		</div>	
-		
-		
-		<button type="button" value="Buscar" data-ng-click="buscarPfCpf()" data-ng-disabled="frmPfBuscar.$invalid" >Buscar</button>
-	</form>
-	
-		<div>
-			<fieldset>
-			<legend>Formulário</legend>
-				Valid: {{frmPfBuscar.$valid}}		
-			</fieldset>
-		</div>
-	
-		<div data-ng-repeat="pf in pfs">
-			{{pf.id +" " +pf.nome + " " + pf.email}} 
-			<button type="button" value="Excluir" data-ng-click="excluirPj(pf)" >Excluir</button>
-			<button type="button" value="Alterar" data-ng-click="alterarPj(pf)" >Alterar</button>
-			<a href = "funcionario/{{pf.id}}">Detalhe</a>
-	
-		</div>
+			
+				<fieldset>
+				<legend>Formulário</legend>
+					Valid: {{frmPf.$valid}}		
+				</fieldset>
+				
+			</div>
+		</form>
+		<form novalidate name="frmPfBuscar">
+				<div>
+					<input type="text" name="txtCpfBuscar" placeholder="Cpf" data-ng-model="cpfbuscar" required />
+					<span data-ng-show="frmPfBuscar.txtCpfBuscar.$error.required && frmPf.txtCpfBuscar.$dirty">Campo cnpj Obrigatorio</span>
+				</div>	
+				<button type="button" value="Buscar" data-ng-click="buscarPfCpf()" data-ng-disabled="frmPfBuscar.$invalid" >Buscar</button>
+		</form>
 	</section>
 </div>
